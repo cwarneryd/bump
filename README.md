@@ -1,1 +1,1 @@
-# bump
+# Bump - small connections, big communities
