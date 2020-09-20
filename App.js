@@ -6,6 +6,8 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { StyleSheet, TextInput, View, YellowBox, Button } from 'react-native'
 import * as firebase from 'firebase'
 import 'firebase/firestore'
+import { PermissionsAndroid } from 'react-native';
+import Contacts from 'react-native-contacts';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBJ_yNOOONOxHuDZmh3LicZLR889RvyDBY",
@@ -102,3 +104,21 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
     },
 })
+
+PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+    {
+      'title': 'Contacts',
+      'message': 'This app would like to view your contacts.',
+      'buttonPositive': 'Please accept'
+    }
+  ).then(() => {
+    Contacts.getAll((err, contacts) => {
+      if (err === 'denied'){
+        // error
+      } else {
+        // contacts returned in Array
+      }
+    })
+  })
+
