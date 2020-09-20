@@ -80,7 +80,7 @@ export default function App() {
         return (
             <View style={styles.container}>
                 <TextInput style={styles.input} placeholder="Enter your name" value={name} onChangeText={setName} />
-                <Button onPress={handlePress} title="Enter the chat" />
+                <Button onPress={handlePress} title="Bump into someone!" />
             </View>
         )
     }
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 15,
         marginBottom: 20,
-        borderColor: 'gray',
+        borderColor: 'blue',
     },
 })
 
